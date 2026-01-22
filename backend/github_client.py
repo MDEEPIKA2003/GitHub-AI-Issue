@@ -8,7 +8,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 
 def fetch_issue(repo_url: str, issue_number: int) -> dict:
-    # Extract owner and repo
+   
     parts = repo_url.rstrip("/").split("/")
     owner, repo = parts[-2], parts[-1]
 

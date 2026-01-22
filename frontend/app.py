@@ -6,9 +6,7 @@ st.set_page_config(page_title="GitHub Issue AI Assistant")
 
 st.title("GitHub Issue AI Assistant")
 
-# -----------------------------
-# Simple in-memory cache
-# -----------------------------
+
 if "cache" not in st.session_state:
     st.session_state.cache = {}
 
@@ -29,9 +27,7 @@ if st.button("Analyze Issue"):
     else:
         cache_key = f"{repo_url}:{issue_number}"
 
-        # -----------------------------
-        # Use cached result if available
-        # -----------------------------
+       
         if cache_key in st.session_state.cache:
             data = st.session_state.cache[cache_key]
         else:
@@ -51,9 +47,7 @@ if st.button("Analyze Issue"):
             data = response.json()
             st.session_state.cache[cache_key] = data
 
-        # -----------------------------
-        # READABLE SUMMARY
-        # -----------------------------
+       
         st.subheader("Readable Summary")
 
         priority_level = (
@@ -77,18 +71,14 @@ if st.button("Analyze Issue"):
 {', '.join(data['suggested_labels'])}
 """)
 
-        # -----------------------------
-        # RAW JSON OUTPUT
-        # -----------------------------
+      
         st.subheader("Analysis Result")
 
         json_text = json.dumps(data, indent=2)
 
         st.code(json_text, language="json")
 
-        # -----------------------------
-        # DOWNLOAD BUTTON ONLY
-        # -----------------------------
+        
         st.download_button(
             label="⬇️ Download JSON",
             data=json_text,

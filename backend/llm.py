@@ -35,11 +35,10 @@ def _extract_json(text: str) -> dict:
     """
     text = text.strip()
 
-    # Remove markdown code fences if present
+    
     if text.startswith("```"):
         text = text.split("```")[1]
 
-    # Remove leading 'json' label if present
     if text.lstrip().startswith("json"):
         text = text.lstrip()[4:].strip()
 
@@ -68,5 +67,6 @@ def analyze_issue(issue_data: dict) -> dict:
 
     if "priority_score" in result:
         result["priority_score"] = str(result["priority_score"])
+
 
     return result

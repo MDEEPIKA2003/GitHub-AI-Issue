@@ -6,11 +6,9 @@ from backend.schemas import IssueAnalysis
 
 app = FastAPI(title="GitHub Issue AI Assistant")
 
-
 @app.get("/")
 def root():
     return {"status": "Backend running"}
-
 
 @app.get("/analyze", response_model=IssueAnalysis)
 def analyze(repo_url: str, issue_number: int):
