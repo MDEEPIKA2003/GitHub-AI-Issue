@@ -104,8 +104,8 @@ Network or rate-limit errors
 ## Setup Instructions:
 
 Step 1: Clone the Repository:
-git clone https://github.com/MDEEPIKA2003/GitHub-AI-Issue.git
-cd GitHub-AI-Issue
+git clone https://github.com/your-username/github-issue-ai.git
+cd github-issue-ai
 
 Step 2: Create Virtual Environment
 python -m venv venv
