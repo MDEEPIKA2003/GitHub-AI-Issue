@@ -17,10 +17,6 @@ def fetch_issue(repo_url: str, issue_number: int) -> dict:
     headers = {}
     if GITHUB_TOKEN:
         headers["Authorization"] = f"Bearer {GITHUB_TOKEN}"
-
-    # -------------------------
-    # Fetch issue
-    # -------------------------
     issue_response = requests.get(issue_url, headers=headers)
 
     if issue_response.status_code != 200:
@@ -33,9 +29,7 @@ def fetch_issue(repo_url: str, issue_number: int) -> dict:
     except ValueError:
         raise Exception("GitHub returned a non-JSON response for issue details")
 
-    # -------------------------
-    # Fetch comments
-    # -------------------------
+ 
     comments_url = issue_data.get("comments_url")
     comments = []
 
